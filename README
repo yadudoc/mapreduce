@@ -1,0 +1,39 @@
+WHAT ?
+======
+MapReduce is a software framework developed by google to perform data intensive
+operations on distributed datasets. The OpenSource project Hadoop under the
+Apache foundation has its own implementation.
+There are numerous other implementation, even erlang libraries which do mapreduce.
+
+Eg. Suppose there is a list of words in a file, [I,am,what,I,am]
+The MAP function returns a {key,value} pair like :
+             [{I,1},{am,1},{what,1},{I,1},{am,1}]
+The REDUCE function operates on a list of sorted key,value pairs and returns
+a processed list, in this case we add up the values of all key,value pairs with 
+same key, so we get :
+             [{am,2},{I,2},{what,1}]
+
+MapReduce performs the above on distributed datasets and efficiently returns
+results. This is intended for large distributed datasets which can be processed
+in parallel.
+
+WHY ?
+=====
+Well, the easiest way to learn something is to go out there and implement it. I 
+have learn't quite a lot about the design issues as well as the nuances of implementation. Now, I know what is missing, and what needs to be done to fix that.
+This is probably a very rudimentary, crude implementation, BUT it serves its 
+purpose. Also I got to learn and understand erlang better on the way :)
+
+
+FOR WHOM ?
+==========
+For myself, and for people who don't mind looking at buggy code in erlang.
+I wouldn't say this is actually ready for testing as such, but probably with
+some more effort, in say weeks, it might get to a stage of being actually useful.
+
+
+TODO
+====
+
+1. Add monitors to tasktracker functions
+2. Handle loss of contact with jobtracker
